@@ -1,0 +1,38 @@
+<div class="signup-form-container clearfix">
+  <div class="signup-form">
+    <%= form_for @user do |f| %>
+      <dl class="form">
+        <dt><%= f.label :name,'用户名' %></dt>
+        <dt><%= f.text_field :name %></dt>
+        <% if @user.errors[:name].any? %>
+            <dd class="error"><%= @user.errors[:name][0] %></dd>
+        <% end %>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :email,'邮箱' %></dt>
+        <dt><%= f.text_field :email %></dt>
+        <% if @user.errors[:email].any? %>
+            <dd class="error"><%= @user.errors[:email][0] %></dd>
+        <% end %>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :password ,'密码' %></dt>
+        <dt><%= f.password_field :password %></dt>
+        <% if @user.errors[:password].any? %>
+            <dd class="error"><%= @user.errors[:password][0] %></dd>
+        <% end %>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :password_confirmation,'请再输入一次' %></dt>
+        <dt><%= f.password_field :password_confirmation %></dt>
+        <% if @user.errors[:password_confirmation].any? %>
+            <dd class="error"><%= @user.errors[:password_confirmation][0] %></dd>
+        <% end %>
+      </dl>
+      <dl class="form">
+        <dt><%= f.submit "注册", :class=>"signup-button btn btn-primary" %></dt>
+      </dl>
+    <% end %>
+  </div>
+</div>
+
